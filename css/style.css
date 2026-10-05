@@ -1,0 +1,493 @@
+/* ========================================
+   心情树洞 · 全局样式
+   大一新生友好版：所有样式集中在这一个文件里
+   ======================================== */
+
+/* ---------- 1. 颜色变量 ----------
+   想换配色，只改这里的值就行，全站会跟着变 */
+:root {
+  --bg: #f7f8f6;              /* 页面底色 */
+  --card: #ffffff;            /* 卡片白底 */
+  --text: #2f3630;            /* 正文颜色 */
+  --text-light: #6b7570;      /* 次要文字 */
+  --border: #e3e7e2;          /* 分割线 */
+
+  --green: #4a9c7d;           /* 主色：安定的绿 */
+  --green-light: #e8f3ee;
+  --green-dark: #37775f;
+
+  --amber: #d99a4e;           /* 提醒色 */
+  --amber-light: #fdf3e5;
+
+  --red: #c85a54;             /* 危机色 */
+  --red-light: #fbeceb;
+
+  --radius: 14px;             /* 圆角 */
+}
+
+/* ---------- 2. 基础重置 ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+               "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+  padding-bottom: 60px;      /* 给底部固定条留位置 */
+}
+
+a {
+  color: var(--green-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 3. 顶栏导航 ---------- */
+header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
+.logo span {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-left: 6px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text-light);
+  transition: all 0.2s;
+}
+
+.nav-links a:hover {
+  background: var(--green-light);
+  color: var(--green-dark);
+  text-decoration: none;
+}
+
+/* 当前所在页面高亮 */
+.nav-links a.active {
+  background: var(--green);
+  color: #fff;
+}
+
+/* ---------- 4. 内容容器 ---------- */
+main {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 32px 0 14px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 0 8px;
+}
+
+p {
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.lead {
+  font-size: 16px;
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+
+/* ---------- 5. 卡片 ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 6. 按钮 ---------- */
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  padding: 11px 26px;
+  border-radius: 24px;
+  border: none;
+  font-size: 15px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--green-dark);
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green-dark);
+  border: 1.5px solid var(--green);
+}
+
+.btn-outline:hover {
+  background: var(--green-light);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+/* ---------- 7. 首页三个入口 ---------- */
+.entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.entry {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  transition: all 0.2s;
+  color: var(--text);
+}
+
+.entry:hover {
+  border-color: var(--green);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.entry .icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.entry .title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--green-dark);
+}
+
+.entry .desc {
+  font-size: 13.5px;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+/* ---------- 8. 情绪打卡 ---------- */
+.mood-picker {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 0 22px;
+}
+
+.mood-option {
+  flex: 1;
+  min-width: 88px;
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.mood-option:hover {
+  border-color: var(--green);
+}
+
+.mood-option.selected {
+  border-color: var(--green);
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+.mood-option .face {
+  font-size: 26px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14.5px;
+  line-height: 1.7;
+  resize: vertical;
+  color: var(--text);
+  background: var(--bg);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--green);
+  background: var(--card);
+}
+
+/* 情绪趋势图 */
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 130px;
+  padding: 16px 4px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 8px;
+}
+
+.bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  max-width: 34px;
+  border-radius: 5px 5px 0 0;
+  background: var(--green);
+  min-height: 4px;
+  transition: height 0.4s;
+}
+
+.bar-label {
+  font-size: 10.5px;
+  color: var(--text-light);
+  margin-top: 6px;
+  white-space: nowrap;
+}
+
+/* 打卡记录列表 */
+.record {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.record:last-child {
+  border-bottom: none;
+}
+
+.record .face {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.record .date {
+  font-size: 12.5px;
+  color: var(--text-light);
+  margin-bottom: 3px;
+}
+
+.record .note {
+  font-size: 14.5px;
+}
+
+.empty {
+  text-align: center;
+  padding: 36px 20px;
+  color: var(--text-light);
+  font-size: 14.5px;
+}
+
+/* ---------- 9. 求助资源 ---------- */
+.resource {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--green);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+
+.resource.urgent {
+  border-left-color: var(--red);
+  background: var(--red-light);
+}
+
+.resource h3 {
+  margin: 0 0 6px;
+  font-size: 16.5px;
+}
+
+.resource .phone {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0.5px;
+  margin: 8px 0;
+  display: block;
+}
+
+.resource.urgent .phone {
+  color: var(--red);
+}
+
+.resource .meta {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+/* 标签 */
+.tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag {
+  font-size: 12.5px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--green-light);
+  color: var(--green-dark);
+}
+
+.tag.warn {
+  background: var(--amber-light);
+  color: var(--amber);
+}
+
+/* ---------- 10. 提示框 ---------- */
+.notice {
+  background: var(--amber-light);
+  border-radius: 10px;
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 20px 0;
+  color: #7a5a2e;
+}
+
+.notice strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--amber);
+}
+
+/* ---------- 11. 页脚 ---------- */
+footer {
+  max-width: 880px;
+  margin: 40px auto 0;
+  padding: 24px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12.5px;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* ---------- 12. 底部固定的危机资源条 ---------- */
+.crisis-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--green-dark);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  text-align: center;
+  z-index: 200;
+}
+
+.crisis-bar strong {
+  color: #ffe0a8;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- 13. 手机适配 ---------- */
+@media (max-width: 600px) {
+  h1 { font-size: 22px; }
+  main { padding: 24px 16px; }
+  .mood-option { min-width: 62px; padding: 12px 4px; font-size: 12.5px; }
+  .mood-option .face { font-size: 22px; }
+  .resource .phone { font-size: 21px; }
+  .crisis-bar { font-size: 12.5px; padding: 8px 14px; }
+  .chart { height: 110px; }
+}
