@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情绪打卡 · 心情树洞</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">心情树洞<span>校园心理健康自助站</span></div>
+    <div class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="tool.html" class="active">自助工具</a>
+      <a href="help.html">求助资源</a>
+      <a href="about.html">关于</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <h1>情绪打卡</h1>
+  <p class="lead">
+    每天花 10 秒，记一下今天的心情。坚持两周，你就能看到自己的情绪规律 ——
+    比如「每周三下午最差」「睡够 7 小时的那些天状态明显好」。这些规律，光靠回忆是看不出来的。
+  </p>
+
+  <!-- ========== 打卡区 ========== -->
+  <div class="card">
+    <h3>今天心情怎么样？</h3>
+    <div class="mood-picker" id="moodPicker">
+      <button class="mood-option" data-score="1">
+        <span class="face">◞</span>很差
+      </button>
+      <button class="mood-option" data-score="2">
+        <span class="face">◟</span>有点低
+      </button>
+      <button class="mood-option" data-score="3">
+        <span class="face">◡</span>一般
+      </button>
+      <button class="mood-option" data-score="4">
+        <span class="face">◠</span>还不错
+      </button>
+      <button class="mood-option" data-score="5">
+        <span class="face">◕</span>很好
+      </button>
+    </div>
+
+    <h3>想记点什么吗？（可跳过）</h3>
+    <textarea id="noteInput" maxlength="200"
+      placeholder="今天发生了什么？比如：下午跟室友吵架了 / 专业课听懂了 / 论文终于交上去了"></textarea>
+    <p style="font-size:12.5px;color:var(--text-light);margin-top:8px">
+      这里写的话只存在你自己的手机或电脑上，不会上传到任何服务器。别写真实姓名。
+    </p>
+
+    <div class="btn-row">
+      <button class="btn" id="saveBtn">保存今天的记录</button>
+    </div>
+    <p id="saveMsg" style="font-size:14px;color:var(--green-dark);display:none;margin:0"></p>
+  </div>
+
+  <!-- ========== 趋势图 ========== -->
+  <h2>最近两周</h2>
+  <div class="card">
+    <div id="chartArea">
+      <div class="empty">还没有记录。从今天开始打卡，这里会出现你的情绪曲线。</div>
+    </div>
+  </div>
+
+  <!-- ========== 规律提示 ========== -->
+  <div id="insightArea"></div>
+
+  <!-- ========== 历史记录 ========== -->
+  <h2>我的记录</h2>
+  <div class="card" id="listArea">
+    <div class="empty">还没有记录。</div>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-outline" id="clearBtn">清除我的全部记录</button>
+  </div>
+
+  <div class="notice">
+    <strong>关于这个工具</strong>
+    它只是帮你把「感觉」变成「看得见的数据」，本身不是心理评估，也不给任何结论。
+    如果你发现自己的分数连续多天都很低，那是一个值得重视的信号 —— 拿着这些记录去学校的心理咨询中心，
+    咨询师会更容易帮到你。
+  </div>
+
+</main>
+
+<footer>
+  <p>
+    本站提供心理健康知识科普与情绪记录工具，<strong>不构成心理诊断、医疗建议或治疗</strong>，
+    不能替代专业心理咨询与精神科诊疗。
+  </p>
+  <p style="margin-top:6px">心情树洞 · 校园心理健康自助站 · 一个在校学生的项目</p>
+</footer>
+
+<div class="crisis-bar">
+  有需要随时打：全国心理援助热线 <strong>12356</strong>（24 小时 · 免费 · 保密）
+</div>
+
+<script src="js/tool.js"></script>
+</body>
+</html>
